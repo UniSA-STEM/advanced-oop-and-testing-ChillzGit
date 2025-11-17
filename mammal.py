@@ -13,7 +13,7 @@ class Mammal(Animal):
         super().__init__(name, species, age, dietary_needs)
 
     def eat(self):
-        return f"{self.__name} is eating {self.__dietary_needs}."
+        return f"{self.name} the {self.species} is eating {self.dietary_needs}."
 
     def make_sound(self):
-        return f"{self.__name} makes a mammal sound"
+        return f"{self.name} makes a mammal sound"
