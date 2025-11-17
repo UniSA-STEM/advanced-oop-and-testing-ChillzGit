@@ -27,7 +27,7 @@ class Animal(ABC):
         pass
 
     def sleep(self):
-        pass
+        return f"{self.__name} is sleeping."
 
     def add_health_record(self, record):
         self.__health_records.append(record)
