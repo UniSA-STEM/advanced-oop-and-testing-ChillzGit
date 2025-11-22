@@ -41,7 +41,7 @@ class Staff(ABC):
             raise ValueError("Animal cannot be None.")
         self.__assigned_animals.append(animal)
 
-    def assume_enclosure(self, enclosure):
+    def assign_enclosure(self, enclosure):
         if enclosure is None:
             raise ValueError("Enclosure cannot be None.")
         self.__assigned_enclosures.append(enclosure)
