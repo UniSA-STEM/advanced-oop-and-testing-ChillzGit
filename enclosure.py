@@ -1,6 +1,6 @@
 '''
 File: enclosure.py
-Description: A brief description of this Python module.
+Description: This python module represents an enclosure class
 Author: Patrick Williams
 ID: 110465151
 Username: wilpy031
@@ -8,6 +8,11 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class Enclosure:
+    """
+    This class represents an enclosure in the zoo.
+    The enclosure can store animals, has a cleanliness level,
+    has an allowed species list and environment type.
+    """
     def __init__(self, size, environmental_type, cleanliness, allowed_species, allowed_environment):
         if size <= 0:
             raise ValueError("Size must be positive")
@@ -24,6 +29,9 @@ class Enclosure:
         self.__animals = []
 
     def animal_validate(self, animal):
+        """
+        Checks if an animal is in the list of allowed species.
+        """
         if animal.species not in self.__allowed_species:
             return False
 
@@ -33,6 +41,9 @@ class Enclosure:
         return True
 
     def add_animal(self, animal):
+        """
+        Adds a valid animal to the enclosure
+        """
         if not self.animal_validate(animal):
             return False
 
@@ -41,6 +52,10 @@ class Enclosure:
         return True
 
     def remove_animal(self, animal):
+        """
+        Removes animal from the enclosure if animal
+        is in enclosure.
+        """
         if animal in self.__animals:
             self.__animals.remove(animal)
             animal.assign_enclosure(None)
@@ -51,6 +66,9 @@ class Enclosure:
         return [animal.name for animal in self.__animals]
 
     def report_status(self):
+        """
+        Returns the enclosure status
+        """
         status = "Enclosure Status:\n"
         status += f"Size: {self.__size}\n"
         status += f"Environment: {self.__environmental_type}\n"
@@ -73,8 +91,12 @@ class Enclosure:
         return status
 
     def clean(self):
+        """
+        Sets the enclosure cleanliness level to 100
+        """
         self.__cleanliness = 100
 
+    # Getters
     @property
     def animals(self):
         return self.__animals.copy()

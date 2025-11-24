@@ -8,6 +8,11 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class HealthRecord:
+    """
+    Represents a Health Record for an animal
+    containing a description, a date, severity, treatment
+    plan and status.
+    """
     def __init__(self, description, date, severity, treatment_plan, status):
         if not description.strip():
             raise ValueError('Description cannot be empty.')

@@ -12,10 +12,17 @@ from health_record import HealthRecord
 from datetime import date
 
 class Veterinarian(Staff):
+    """
+    Represents a Veterinarian who can perform health checks.
+    """
     def  __init__(self, name, staff_id):
         super().__init__(name, staff_id, "Veterinarian")
 
     def conduct_health_check(self, animal, description, severity, treatment_plan):
+        """
+        Conducts a health check for a given animal and stores
+        it a new health record.
+        """
         if animal is None:
             raise ValueError("The animal cannot be None")
 
@@ -32,4 +39,7 @@ class Veterinarian(Staff):
         return record
 
     def perform_duties(self):
+        """
+        Returns a description of the duties performed.
+        """
         return f"{self.name} is doing health checks"
